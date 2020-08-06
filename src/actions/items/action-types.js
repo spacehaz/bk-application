@@ -1,4 +1,4 @@
-const ADD_ITEM = 'ADD_ITEM'
+const ADD_ITEM = 'ITEMS.ADD_ITEM'
 
 export {
   ADD_ITEM

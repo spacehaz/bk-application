@@ -1,4 +1,4 @@
-import { ADD_ITEM } from '../../../actions/items/action-types'
+import { ADD_ITEM } from '@actions/items/action-types'
 
 const initialState = {
   items: [{ title: 'Food', price: '69.99' }]
