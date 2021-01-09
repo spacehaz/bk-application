@@ -6,8 +6,15 @@ import { Button, Input, Tabs } from "@components"
 
 
 class Main extends Component {
+  constructor (props) {
+    super(props)
+    this.state = {
+      active: 'monday'
+    }
+  }
   render () {
     const { items, testSaga } = this.props
+    const { active } = this.state
     return (
       <View style={styles.container}>
         {items.map(item => <Text style={styles.cellValue}>{item.title}</Text>)}
@@ -17,13 +24,19 @@ class Main extends Component {
         />
         <Text style={styles.cellValue}>input here</Text>
         <Input />
-        <Tabs items={[
-          { title: 'ПН', id: 'monday' },
-          { title: 'ВТ', id: 'tuesday' },
-          { title: 'СР', id: 'wednesday' },
-          { title: 'ЧТ', id: 'thursday' },
-          { title: 'ПТ', id: 'friday' }
-        ]} />
+        <Tabs
+          items={[
+            { title: 'ПН', id: 'monday' },
+            { title: 'ВТ', id: 'tuesday' },
+            { title: 'СР', id: 'wednesday' },
+            { title: 'ЧТ', id: 'thursday' },
+            { title: 'ПТ', id: 'friday' }
+          ]}
+          active={active}
+          onChange={({ id }) => {
+            this.setState({ active: id })
+          }}
+        />
       </View>
     )
   }
